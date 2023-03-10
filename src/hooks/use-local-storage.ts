@@ -6,7 +6,8 @@ export function useLocalStorage<T>(
   key: string,
   initialValue: T,
 ): LocalStorageTuple<T> {
-  const [storedValue, setStoredValue] = useState<T>(() => {
+  const [storedValue, setStoredValue] = useState<T>(getInitialStoredValue())
+  function getInitialStoredValue(): T {
     if (typeof window === 'undefined') return initialValue
     try {
       const item = window.localStorage.getItem(key)
@@ -15,7 +16,7 @@ export function useLocalStorage<T>(
       console.error(`Error setting ${key} to localStorage`, error)
       return initialValue
     }
-  })
+  }
 
   const setValue = useCallback(
     (value: T) => {
