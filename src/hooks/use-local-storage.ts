@@ -1,13 +1,18 @@
 import { useState, useCallback } from 'react'
 
-export function useLocalStorage<T>(key: string, initialValue: T) {
+type LocalStorageTuple<T> = readonly [T, (value: T) => void]
+
+export function useLocalStorage<T>(
+  key: string,
+  initialValue: T,
+): LocalStorageTuple<T> {
   const [storedValue, setStoredValue] = useState<T>(() => {
     if (typeof window === 'undefined') return initialValue
     try {
       const item = window.localStorage.getItem(key)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
-      console.log(error)
+      console.error(`Error setting ${key} to localStorage`, error)
       return initialValue
     }
   })
@@ -17,12 +22,12 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
       try {
         const valueToStore =
           value instanceof Function ? value(storedValue) : value
-        setStoredValue(valueToStore)
+        setStoredValue(value)
         if (typeof window !== 'undefined') {
           window.localStorage.setItem(key, JSON.stringify(valueToStore))
         }
       } catch (error) {
-        console.log(error)
+        console.error(`Error setting ${key} to localStorage`, error)
       }
     },
     [key, storedValue],
