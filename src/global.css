@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button {
+  cursor: pointer;
+}
+
+body {
+  @apply bg-neutral-800;
+}
