@@ -1,9 +1,9 @@
 import React from 'react'
 import { Check, ClipboardText, Trash } from 'phosphor-react'
 
-import { Task } from './TaskSubmitForm'
+import { Task } from '../TaskSubmitForm'
 
-import styles from './TaskList.module.scss'
+import styles from './styles.module.scss'
 
 type UpdateTaskListFn = React.Dispatch<React.SetStateAction<Task[]>>
 type TaskSubmitFormProps = {

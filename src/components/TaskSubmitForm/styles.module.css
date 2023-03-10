@@ -1,0 +1,11 @@
+.container {
+  @apply flex justify-center items-center gap-2 mt-[-2rem];
+}
+
+.taskInput {
+    @apply w-full h-full p-4 text-gray-100 bg-neutral-800 border border-neutral-900 rounded-md focus-visible:border-violet-700 focus:outline-none;
+}
+
+.taskButton {
+    @apply bg-blue-500;
+}

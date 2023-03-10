@@ -1,6 +1,8 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { PlusCircle } from 'phosphor-react'
 
+import styles from './styles.module.css'
+
 export type Task = {
   id: string
   title: string
@@ -34,16 +36,13 @@ export function TaskSubmitForm({ tasks, setTasks }: TaskSubmitFormProps) {
   }
 
   return (
-    <form
-      onSubmit={handleTaskSubmit}
-      className="flex justify-center items-center gap-2 mt-[-2rem]"
-    >
+    <form onSubmit={handleTaskSubmit} className={styles.container}>
       <input
         type="text"
         placeholder="Adicione uma nova tarefa..."
         value={newTask.title}
         onChange={handleTaskInput}
-        className="w-full h-full p-4 text-gray-100 bg-neutral-800 border border-neutral-900 rounded-md focus-visible:border-violet-700 focus:outline-none"
+        className={styles.taskInput}
         required
       />
       <button
