@@ -32,16 +32,17 @@ export function TaskList({ tasks, setTasks }: TaskSubmitFormProps) {
     <>
       <div className={styles.stats}>
         <p>
-          Tarefas criadas <span>{taskCount}</span>
+          Tarefas criadas{' '}
+          <span className={styles.taskCounter}>{taskCount}</span>
         </p>
         <p>
           Concluídas{' '}
           {taskCount ? (
-            <span>
+            <span className={styles.taskCounter}>
               {taskCompleteCount} de {taskCount}
             </span>
           ) : (
-            <span>{taskCount}</span>
+            <span className={styles.taskCounter}>{taskCount}</span>
           )}
         </p>
       </div>
