@@ -1,15 +1,45 @@
+.task {
+  @apply flex justify-between items-start gap-4 p-4 border border-solid border-gray-500 bg-neutral-800 rounded-md ;
+}
+
 .taskCounter {
-  @apply text-gray-300 px-1 py-0.5 ml-1 rounded-full bg-gray-800;
+  @apply text-gray-50 px-1 py-0.5 ml-1 rounded-full bg-zinc-700;
 }
 
 .stats {
-  @apply flex justify-between py-16 px-0 sm:py-24 sm:px-6 lg:px-8 text-sm font-semibold;
+  @apply flex justify-between pt-12 pb-4 px-0 font-semibold;
 }
 
 .stats p:first-child {
   color: hsl(203, 69%, 59%);
 }
 
-.stats p:first-child {
+.stats p:last-child {
   color: hsl(237, 92%, 75%);
+}
+
+.emptyTaskList {
+  @apply flex flex-col items-center pt-16 gap-4 text-gray-500;
+}
+
+.deleteTaskButton {
+  @apply flex justify-center p-2 text-lg text-gray-500 border-none transition duration-150 ease-in-out bg-transparent focus:outline-none hover:text-red-600 hover:bg-neutral-700 rounded-lg;
+}
+
+.taskComplete,
+.taskIncomplete {
+  @apply flex justify-start w-full text-white transition-colors duration-500 ease-out;
+}
+
+.taskComplete {
+  @apply text-gray-500 line-through;
+}
+
+.btnComplete,
+.btnIncomplete {
+  @apply flex justify-center p-1 text-sm border border-solid border-blue-500 rounded-full transition duration-150 ease-in-out;
+}
+
+.btnComplete {
+  @apply text-gray-50 bg-violet-600 border border-solid border-violet-600;
 }

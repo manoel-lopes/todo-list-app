@@ -3,7 +3,7 @@ import { Check, ClipboardText, Trash } from 'phosphor-react'
 
 import { Task, UpdateTaskListFn } from '../TaskSubmitForm'
 
-import styles from './styles.module.scss'
+import styles from './styles.module.css'
 
 type TaskSubmitFormProps = {
   tasks: Task[]
@@ -55,7 +55,10 @@ export function TaskList({ tasks, setTasks }: TaskSubmitFormProps) {
                   task.isComplete ? styles.btnComplete : styles.btnIncomplete
                 }
               >
-                <Check weight="bold" />
+                <Check
+                  className={`${!task.isComplete && 'opacity-0'}`}
+                  weight="bold"
+                />
               </button>
               <span
                 className={
@@ -66,16 +69,16 @@ export function TaskList({ tasks, setTasks }: TaskSubmitFormProps) {
               </span>
               <button
                 onClick={() => handleTaskDelete(task.id)}
-                className={styles.btnDelete}
+                className={styles.deleteTaskButton}
               >
-                <Trash weight="light" />
+                <Trash className="text-2xl" weight="light" />
               </button>
             </li>
           ))}
         </ul>
       ) : (
-        <div className={styles.emptyList}>
-          <ClipboardText weight="light" />
+        <div className={styles.emptyTaskList}>
+          <ClipboardText className="text-6xl opacity-50" weight="light" />
           <p>
             <strong>Você ainda não tem tarefas cadastradas</strong> <br />
             Crie tarefas e organize seus itens a fazer
