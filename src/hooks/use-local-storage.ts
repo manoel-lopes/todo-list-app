@@ -20,8 +20,8 @@ export function useLocalStorage<T>(
   const setValue = useCallback(
     (value: T) => {
       try {
-        const valueToStore =
-          value instanceof Function ? value(storedValue) : value
+        const isValueAFunction = typeof value === 'function'
+        const valueToStore = isValueAFunction ? value(storedValue) : value
         setStoredValue(value)
         if (typeof window !== 'undefined') {
           window.localStorage.setItem(key, JSON.stringify(valueToStore))
