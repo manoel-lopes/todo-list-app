@@ -50,7 +50,7 @@ export function TaskSubmitForm({ tasks, setTasks }: TaskSubmitFormProps) {
       <button
         type="submit"
         title="Criar nova tarefa"
-        className="flex items-center p-4 gap-1 text-gray-50 border-none rounded-md bg-blue-500 transition-colors duration-150 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none"
+        className={`bg-blue-500 ${styles.taskSubmitButton}`}
       >
         Criar <PlusCircle className="text-2xl" />
       </button>
