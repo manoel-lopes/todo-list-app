@@ -1,5 +1,6 @@
 import React from 'react'
 import { Check, ClipboardText, Trash } from 'phosphor-react'
+
 import { Task } from './TaskSubmitForm'
 
 import styles from './TaskList.module.scss'
@@ -13,7 +14,7 @@ type TaskSubmitFormProps = {
 export function TaskList({ tasks, setTasks }: TaskSubmitFormProps) {
   function handleTaskComplete(id: string) {
     setTasks(
-      tasks.map(function (task) {
+      tasks.map((task) => {
         if (task.id === id) {
           task.isComplete = !task.isComplete
         }
@@ -23,18 +24,11 @@ export function TaskList({ tasks, setTasks }: TaskSubmitFormProps) {
   }
 
   function handleTaskDelete(id: string) {
-    setTasks(
-      tasks.filter(function (task) {
-        return task.id !== id
-      }),
-    )
+    setTasks(tasks.filter((task) => task.id !== id))
   }
 
   const taskCount = tasks.length
-  const taskCompleteCount = tasks.filter(function (task) {
-    return task.isComplete
-  }).length
-
+  const taskCompleteCount = tasks.filter((task) => task.isComplete).length
   return (
     <>
       <div className={styles.stats}>
@@ -43,7 +37,7 @@ export function TaskList({ tasks, setTasks }: TaskSubmitFormProps) {
         </p>
         <p>
           Concluídas{' '}
-          {taskCount > 0 ? (
+          {taskCount ? (
             <span>
               {taskCompleteCount} de {taskCount}
             </span>
@@ -52,8 +46,8 @@ export function TaskList({ tasks, setTasks }: TaskSubmitFormProps) {
           )}
         </p>
       </div>
-      {taskCount > 0 ? (
-        <ul className={styles.list}>
+      {taskCount ? (
+        <ul className="grid gap-4">
           {tasks.map((task) => (
             <li key={task.id} className={styles.task}>
               <button
