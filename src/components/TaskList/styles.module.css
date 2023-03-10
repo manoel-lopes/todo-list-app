@@ -1,0 +1,15 @@
+.taskCounter {
+  @apply text-gray-300 px-1 py-0.5 ml-1 rounded-full bg-gray-800;
+}
+
+.stats {
+  @apply flex justify-between py-16 px-0 sm:py-24 sm:px-6 lg:px-8 text-sm font-semibold;
+}
+
+.stats p:first-child {
+  color: hsl(203, 69%, 59%);
+}
+
+.stats p:first-child {
+  color: hsl(237, 92%, 75%);
+}
