@@ -1,11 +1,10 @@
-import { useState } from 'react'
-
+import { useLocalStorage } from './hooks/use-local-storage'
 import { Header } from './components/Header'
 import { TaskList } from './components/TaskList'
 import { TaskSubmitForm, Task } from './components/TaskSubmitForm'
 
 export function App() {
-  const [tasks, setTasks] = useState<Task[]>([])
+  const [tasks, setTasks] = useLocalStorage<Task[]>('tasks', [])
   return (
     <>
       <Header />

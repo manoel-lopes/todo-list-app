@@ -9,7 +9,7 @@ export type Task = {
   isComplete: boolean
 }
 
-export type UpdateTaskListFn = React.Dispatch<React.SetStateAction<Task[]>>
+export type UpdateTaskListFn = (value: Task[]) => void
 
 type TaskSubmitFormProps = {
   tasks: Task[]
