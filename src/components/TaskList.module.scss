@@ -1,9 +1,3 @@
-$purple: hsl(237, 92%, 75%);
-$purple-dark: hsl(239, 53%, 59%);
-
-$blue: hsl(203, 69%, 59%);
-$blue-dark: hsl(202, 68%, 37%);
-
 .list {
   display: grid;
   gap: 1rem;
@@ -25,11 +19,11 @@ $blue-dark: hsl(202, 68%, 37%);
   }
 
   p:first-child {
-    color: $blue;
+    color: hsl(203, 69%, 59%);
   }
 
   p:last-child {
-    color: $purple;
+    color: hsl(237, 92%, 75%);
   }
 }
 
@@ -64,7 +58,7 @@ $blue-dark: hsl(202, 68%, 37%);
   justify-content: center;
   padding: 0.125rem;
   font-size: 87.5%;
-  border: 1px solid $blue;
+  border: 1px solid hsl(203, 69%, 59%);
   border-radius: 9999px;
   background: none;
   transition: opacity 0.15s, background-color 0.15s, border 0.15s;
@@ -76,14 +70,14 @@ $blue-dark: hsl(202, 68%, 37%);
   &:focus-visible,
   &:hover {
     opacity: 0.7;
-    background-color: rgba($blue, 0.1);
+    background-color: rgba(hsl(203, 69%, 59%), 0.1);
   }
 }
 
 .btnComplete {
   color: hsl(0, 0%, 95%);
-  border: 1px solid $purple-dark;
-  background-color: $purple-dark;
+  border: 1px solid hsl(239, 53%, 59%);
+  background-color: hsl(239, 53%, 59%);
 
   svg {
     opacity: 1;
@@ -92,8 +86,8 @@ $blue-dark: hsl(202, 68%, 37%);
   &:focus-visible,
   &:hover {
     opacity: 1;
-    background-color: $purple;
-    border: 1px solid $purple;
+    background-color: hsl(237, 92%, 75%);
+    border: 1px solid hsl(237, 92%, 75%);
   }
 }
 
