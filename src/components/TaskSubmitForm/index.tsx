@@ -9,13 +9,21 @@ export type Task = {
   isComplete: boolean
 }
 
+export type UpdateTaskListFn = React.Dispatch<React.SetStateAction<Task[]>>
+
 type TaskSubmitFormProps = {
   tasks: Task[]
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>
+  setTasks: UpdateTaskListFn
 }
 
 export function TaskSubmitForm({ tasks, setTasks }: TaskSubmitFormProps) {
   const [newTask, setNewTask] = useState<{ title: string }>({ title: '' })
+
+  function handleTaskSubmit(event: FormEvent) {
+    event.preventDefault()
+    setTasks([createNewTask(), ...tasks])
+    setNewTask({ title: '' })
+  }
 
   function createNewTask(): Task {
     return {
@@ -23,12 +31,6 @@ export function TaskSubmitForm({ tasks, setTasks }: TaskSubmitFormProps) {
       title: newTask.title,
       isComplete: false,
     }
-  }
-
-  function handleTaskSubmit(event: FormEvent) {
-    event.preventDefault()
-    setTasks([createNewTask(), ...tasks])
-    setNewTask({ title: '' })
   }
 
   function handleTaskInput(event: ChangeEvent<HTMLInputElement>) {
@@ -48,7 +50,7 @@ export function TaskSubmitForm({ tasks, setTasks }: TaskSubmitFormProps) {
       <button
         type="submit"
         title="Criar nova tarefa"
-        className="flex items-center p-4 gap-1 text-gray-50 border-none rounded-md bg-blue-500 transition-colors duration-150 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none"
+        className={styles.taskSubmitButton}
       >
         Criar <PlusCircle className="text-2xl" />
       </button>

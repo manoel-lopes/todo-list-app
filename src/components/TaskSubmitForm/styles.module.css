@@ -3,9 +3,9 @@
 }
 
 .taskInput {
-    @apply w-full h-full p-4 text-gray-100 bg-neutral-800 border border-neutral-900 rounded-md focus-visible:border-violet-700 focus:outline-none;
+  @apply w-full h-full p-4 text-gray-100 bg-neutral-800 border border-neutral-900 rounded-md focus-visible:border-violet-700 focus:outline-none;
 }
 
-.taskButton {
-    @apply bg-blue-500;
+.taskSubmitButton {
+  @apply flex items-center p-4 gap-1 text-gray-50 border-none rounded-md bg-blue-500 transition-colors duration-150 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none;
 }
