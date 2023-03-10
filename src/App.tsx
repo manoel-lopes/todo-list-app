@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Header } from './components/Header'
 import { TaskList } from './components/TaskList'
-import { TaskSubmitForm, TaskTypes } from './components/TaskSubmitForm'
+import { TaskSubmitForm, Task } from './components/TaskSubmitForm'
 
 export function App() {
-  const [tasks, setTasks] = useState<TaskTypes[]>([])
+  const [tasks, setTasks] = useState<Task[]>([])
   return (
     <>
       <Header />

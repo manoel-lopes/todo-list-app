@@ -1,32 +1,36 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { PlusCircle } from 'phosphor-react'
 
-export type TaskTypes = {
+export type Task = {
   id: string
   title: string
   isComplete: boolean
 }
 
 type TaskSubmitFormProps = {
-  tasks: TaskTypes[]
-  setTasks: React.Dispatch<React.SetStateAction<TaskTypes[]>>
+  tasks: Task[]
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>
 }
 
 export function TaskSubmitForm({ tasks, setTasks }: TaskSubmitFormProps) {
-  const [newTask, setNewTask] = useState('')
+  const [newTask, setNewTask] = useState<{ title: string }>({ title: '' })
+
+  function createNewTask(): Task {
+    return {
+      id: crypto.randomUUID(),
+      title: newTask.title,
+      isComplete: false,
+    }
+  }
 
   function handleTaskSubmit(event: FormEvent) {
     event.preventDefault()
-
-    setTasks([
-      { id: crypto.randomUUID(), title: newTask, isComplete: false },
-      ...tasks,
-    ])
-    setNewTask('')
+    setTasks([createNewTask(), ...tasks])
+    setNewTask({ title: '' })
   }
 
   function handleTaskInput(event: ChangeEvent<HTMLInputElement>) {
-    setNewTask(event.target.value)
+    setNewTask({ title: event.target.value })
   }
 
   return (
@@ -37,7 +41,7 @@ export function TaskSubmitForm({ tasks, setTasks }: TaskSubmitFormProps) {
       <input
         type="text"
         placeholder="Adicione uma nova tarefa..."
-        value={newTask}
+        value={newTask.title}
         onChange={handleTaskInput}
         className="w-full h-full p-4 text-gray-100 bg-neutral-800 border border-neutral-900 rounded-md focus-visible:border-violet-700 focus:outline-none"
         required
