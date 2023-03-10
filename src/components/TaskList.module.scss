@@ -3,28 +3,12 @@ $gray-200: hsl(0, 0%, 85%);
 $gray-300: hsl(0, 0%, 50%);
 $gray-400: hsl(0, 0%, 20%);
 $gray-500: hsl(0, 0%, 15%);
-$gray-600: hsl(0, 0%, 10%);
-$gray-700: hsl(0, 0%, 5%);
 
 $purple: hsl(237, 92%, 75%);
 $purple-dark: hsl(239, 53%, 59%);
 
 $blue: hsl(203, 69%, 59%);
 $blue-dark: hsl(202, 68%, 37%);
-
-$danger: hsl(0, 80%, 62%);
-
-$ff-sans: "Inter", sans-serif;
-
-$fw-regular: 400;
-$fw-bold: 700;
-
-$fs-sm: 0.75rem;
-$fs-md: 0.875rem;
-$fs-base: 1rem;
-
-$br-1: 0.5rem;
-$br-full: 9999px;
 
 .list {
   display: grid;
@@ -36,13 +20,13 @@ $br-full: 9999px;
   justify-content: space-between;
   padding: 4em 0 1.5em 0;
   font-size: 87.5%;
-  font-weight: $fw-bold;
+  font-weight: 700;
 
   span {
     color: $gray-200;
     padding: 0.125rem 0.5rem;
     margin-left: 0.25rem;
-    border-radius: $br-full;
+    border-radius: 9999px;
     background-color: $gray-400;
   }
 
@@ -62,7 +46,7 @@ $br-full: 9999px;
   gap: 1rem;
   padding: 1rem;
   border: 1px solid $gray-400;
-  border-radius: $br-1;
+  border-radius: 0.5rem;
   background-color: $gray-500;
 }
 
@@ -87,7 +71,7 @@ $br-full: 9999px;
   padding: 0.125rem;
   font-size: 87.5%;
   border: 1px solid $blue;
-  border-radius: $br-full;
+  border-radius: 9999px;
   background: none;
   transition: opacity 0.15s, background-color 0.15s, border 0.15s;
 
@@ -131,8 +115,8 @@ $br-full: 9999px;
 
   &:focus-visible,
   &:hover {
-    color: $danger;
-    border-radius: $br-1;
+    color: hsl(0, 80%, 62%);
+    border-radius: 0.5rem;
     background-color: $gray-400;
   }
 }
